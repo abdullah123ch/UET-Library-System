@@ -18,7 +18,6 @@ class HashTable:
         if self.table[index] is None:
             self.table[index] = HashNode(key, value)
         else:
-            # Handle collision via chaining 
             current = self.table[index]
             while current:
                 if current.key == key:
