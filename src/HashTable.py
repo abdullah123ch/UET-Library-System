@@ -1,18 +1,31 @@
 class HashNode:
+    """
+    Node class for the Hash Table chaining.
+    """
     def __init__(self, key, value):
         self.key = key       
         self.value = value  
         self.next = None
  
 class HashTable:
+    """
+    Generic Hash Table implementation using chaining for collision resolution.
+    """
     def __init__(self, size=50):
         self.size = size
         self.table = [None] * self.size
 
     def _hash(self, key):
+        """
+        Computes the index for a given key.
+        """
         return hash(key) % self.size
 
     def insert(self, key, value):
+        """
+        Inserts a key-value pair into the hash table.
+        If the key already exists, updates the value.
+        """
         index = self._hash(key)
         
         if self.table[index] is None:
@@ -29,6 +42,12 @@ class HashTable:
             current.next = HashNode(key, value)
 
     def search(self, key):
+        """
+        Searches for a value by key.
+        
+        Returns:
+            The value associated with the key, or None if not found.
+        """
         index = self._hash(key)
         current = self.table[index]
         
@@ -39,6 +58,12 @@ class HashTable:
         return None 
 
     def delete(self, key):
+        """
+        Deletes a key-value pair from the hash table.
+        
+        Returns:
+            bool: True if deletion was successful, False if key not found.
+        """
         index = self._hash(key)
         current = self.table[index]
         prev = None

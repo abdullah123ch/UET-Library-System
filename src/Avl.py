@@ -1,4 +1,7 @@
 class AVLNode:
+    """
+    Node class for the AVL Tree.
+    """
     def __init__(self, isbn, book):
         self.isbn = str(isbn)
         self.book = book
@@ -7,13 +10,31 @@ class AVLNode:
         self.height = 1
 
 class AVLTree:
+    """
+    Implementation of an AVL Tree (Self-Balancing Binary Search Tree).
+    
+    This tree maintains balance by ensuring the height difference between left
+    and right subtrees is at most 1. It provides O(log n) time complexity for
+    search, insertion, and deletion operations.
+    """
     def height(self, node):
+        """Returns the height of a node (0 if None)."""
         return node.height if node else 0
 
     def balance(self, node):
+        """Calculates the balance factor of a node (left height - right height)."""
         return self.height(node.left) - self.height(node.right) if node else 0
 
     def rotateRight(self, y):
+        """
+        Performs a right rotation on the subtree rooted at y.
+        
+        Args:
+            y (AVLNode): The root of the subtree to rotate.
+            
+        Returns:
+            AVLNode: The new root of the subtree.
+        """
         x = y.left
         T2 = x.right
         x.right = y
@@ -23,6 +44,15 @@ class AVLTree:
         return x
 
     def rotateLeft(self, x):
+        """
+        Performs a left rotation on the subtree rooted at x.
+        
+        Args:
+            x (AVLNode): The root of the subtree to rotate.
+            
+        Returns:
+            AVLNode: The new root of the subtree.
+        """
         y = x.right
         T2 = y.left
         y.left = x
@@ -38,6 +68,17 @@ class AVLTree:
         return current
 
     def insert(self, root, isbn, book):
+        """
+        Inserts a new book into the AVL Tree.
+        
+        Args:
+            root (AVLNode): The current root of the subtree.
+            isbn (str): ISBN of the book used as key.
+            book (Book): The book object.
+            
+        Returns:
+            AVLNode: The new root of the subtree after insertion and balancing.
+        """
         if not root:
             return AVLNode(isbn, book)
 
@@ -52,6 +93,16 @@ class AVLTree:
         return self.rebalance(root, isbn)
 
     def delete(self, root, isbn):
+        """
+        Deletes a book from the AVL Tree by ISBN.
+        
+        Args:
+            root (AVLNode): The current root of the subtree.
+            isbn (str): ISBN of the book to delete.
+            
+        Returns:
+            AVLNode: The new root of the subtree after deletion and balancing.
+        """
         if not root:
             return root
 
@@ -112,6 +163,16 @@ class AVLTree:
         return root
 
     def search(self, root, isbn):
+        """
+        Recursive search for a node by ISBN.
+        
+        Args:
+            root (AVLNode): The current root to search from.
+            isbn (str): The ISBN to find.
+            
+        Returns:
+            AVLNode: The node containing the book, or None if not found.
+        """
         if not root or root.isbn == isbn:
             return root
         if isbn < root.isbn:
@@ -119,6 +180,13 @@ class AVLTree:
         return self.search(root.right, isbn)
 
     def inorder(self, root, result_list):
+        """
+        Performs an in-order traversal (sorted order) and populates the result list.
+        
+        Args:
+            root (AVLNode): Current node.
+            result_list (list): List to append books to.
+        """
         if root:
             self.inorder(root.left, result_list)
             result_list.append(root.book)

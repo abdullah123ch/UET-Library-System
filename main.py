@@ -10,7 +10,12 @@ from src.Models import Book, Member
 console = Console()
 
 def display_menu():
-    """Renders the main menu UI using Rich."""
+    """
+    Renders the main menu UI using Rich.
+    
+    This function creates a panel with a list of available options for the user
+    and prints it to the console.
+    """
     console.print("\n")
     menu_content = (
         "[bold green]1.[/bold green] Add New Book\n"
@@ -25,6 +30,12 @@ def display_menu():
     console.print(Panel(menu_content, title="[bold cyan]UET Library Management System[/bold cyan]", subtitle="EE234L Project"))
 
 def main():
+    """
+    The main execution loop of the library management system.
+    
+    Initializes the LibrarySystem, loads initial data if available, and enters
+    an infinite loop to process user commands via the CLI menu.
+    """
     library = LibrarySystem()
     if os.path.exists('data/books.csv'):
         library.loadBooksCSV('data/books.csv')
