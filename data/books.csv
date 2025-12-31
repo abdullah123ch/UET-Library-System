@@ -1,0 +1,51 @@
+ISBN,Title,Author,Year,Category,TotalCopies
+9780134685991,Effective Python,Brett Slatkin,2019,Programming,3
+9780132350884,Clean Code,Robert Martin,2008,Programming,5
+9780596009205,Head First Design Patterns,Eric Freeman,2004,Design,2
+9780201633610,Design Patterns,Erich Gamma,1994,Computer Science,4
+9780131103627,The C Programming Language,Brian Kernighan,1988,Programming,6
+9780134494166,Clean Architecture,Robert Martin,2017,Software Engineering,4
+9780321125217,The Pragmatic Programmer,Andrew Hunt,1999,Programming,3
+9780262033848,Introduction to Algorithms,Thomas Cormen,2009,Algorithms,5
+9780596517748,JavaScript The Good Parts,Douglas Crockford,2008,Programming,2
+9781449331818,Learning Python,Mark Lutz,2013,Programming,7
+9780135957059,The Clean Coder,Robert Martin,2011,Professionalism,4
+9780321356680,Effective Java,Joshua Bloch,2008,Programming,5
+9780596007126,Head First HTML with CSS,Elisabeth Robson,2005,Web Development,3
+9780596520687,Using SQLite,Jay Kreibich,2010,Database,2
+9781491912058,Fluent Python,Luciano Ramalho,2015,Programming,4
+9781449355739,Learning PHP MySQL and JavaScript,Robin Nixon,2014,Web Development,5
+9780132350885,Refactoring,Martin Fowler,1999,Software Engineering,3
+9780596805524,Test Driven Development,Kent Beck,2002,Programming,2
+9781118008188,Cracking the Coding Interview,Gayle Laakmann,2011,Career,10
+9781449364038,Python for Data Analysis,Wes McKinney,2012,Data Science,6
+9780321146533,Test Driven Development By Example,Kent Beck,2003,Programming,3
+9780596005658,Head First Java,Kathy Sierra,2003,Programming,5
+9781491946008,Introduction to Machine Learning,Andreas Muller,2016,Machine Learning,4
+9780137081073,The Art of Unit Testing,Roy Osherove,2009,Testing,2
+9780201616224,The Mythical Man-Month,Frederick Brooks,1975,Management,3
+9780321573513,Algorithms,Robert Sedgewick,2011,Algorithms,5
+9780596001087,Learning Perl,Randal Schwartz,2001,Programming,2
+9781449340377,Python Cookbook,David Beazley,2013,Programming,4
+9780134093413,C++ Primer,Stanley Lippman,2012,Programming,5
+9780131103700,Code Complete,Steve McConnell,2004,Software Engineering,6
+9780321344755,Java Concurrency in Practice,Brian Goetz,2006,Programming,3
+9780596002817,Learning XML,Erik Ray,2001,Web Development,2
+9781491901427,High Performance Python,Micha Gorelick,2014,Programming,4
+9780132143011,Working Effectively with Legacy Code,Michael Feathers,2004,Software Engineering,3
+9780321127426,Patterns of Enterprise Application Architecture,Martin Fowler,2002,Design,4
+9780596003067,Learning Java,Patrick Niemeyer,2002,Programming,3
+9780596004651,Java Network Programming,Elliotte Harold,2004,Programming,2
+9781449319793,Python Pocket Reference,Mark Lutz,2014,Programming,8
+9780136006329,Database Systems,Thomas Connolly,2010,Database,4
+9780321751041,The C++ Programming Language,Bjarne Stroustrup,2013,Programming,5
+9780596006990,Learning SQL,Alan Beaulieu,2005,Database,3
+9780132350800,Domain Driven Design,Eric Evans,2003,Design,4
+9780321334060,Modern C++ Design,Andrei Alexandrescu,2001,Programming,2
+9780596155957,Learning Android,Marko Gargenta,2011,Mobile,3
+9781449302450,Node: Up and Running,Tom Hughes-Croucher,2012,Web Development,4
+9780134190440,The Go Programming Language,Alan Donovan,2015,Programming,5
+9780321553577,The Ruby Programming Language,David Flanagan,2008,Programming,3
+9780596513986,Programming Scala,Dean Wampler,2009,Programming,2
+9781449308292,Programming C#,Ian Griffiths,2010,Programming,4
+9780132350889,Programming Pearls,Jon Bentley,1999,Algorithms,5

@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from src.Avl import AVLTree
+from src.Avl import AVLTree, display
 from src.Models import Book
 
 def test_avl():
@@ -20,7 +20,7 @@ def test_avl():
     for b in books:
         root = tree.insert(root, b.isbn, b)
     
-    tree.display(root)
+    display(root)
 
     print("\n--- Testing Search ---")
     search_isbn = "9780132350884"
@@ -39,7 +39,7 @@ def test_avl():
     print("\n--- Testing Deletion ---")
     root = tree.delete(root, "9780134685991")
     print("Tree after deleting 9780134685991:")
-    tree.display(root)
+    display(root)
 
 if __name__ == "__main__":
     test_avl()

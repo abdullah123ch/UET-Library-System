@@ -3,7 +3,7 @@ class HashNode:
         self.key = key       
         self.value = value  
         self.next = None
-
+ 
 class HashTable:
     def __init__(self, size=50):
         self.size = size
