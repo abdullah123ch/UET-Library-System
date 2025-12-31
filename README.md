@@ -30,7 +30,7 @@ The core efficiency of this system relies on the following data structures:
 
 ```markdown
 | Feature | Data Structure | Reason for Choice |
-| source | --- | --- |
+| :--- | :--- | :--- |
 | **Main Catalog** | **AVL Tree** | Ensures balanced height for efficient search, insertion, and deletion operations (O(log n)) based on ISBN. |
 | **Title Index** | **Hash Table** | Provides fast O(1) average time complexity for looking up ISBNs by Book Title. |
 | **Author Index** | **Hash Table with Chaining** | Maps Authors to lists of ISBNs, allowing efficient retrieval of all books by a specific author. |
