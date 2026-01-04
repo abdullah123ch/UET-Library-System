@@ -93,61 +93,54 @@ class AVLTree:
         return self.rebalance(root, isbn)
 
     def delete(self, root, isbn):
-        """
-        Deletes a book from the AVL Tree by ISBN.
-        
-        Args:
-            root (AVLNode): The current root of the subtree.
-            isbn (str): ISBN of the book to delete.
-            
-        Returns:
-            AVLNode: The new root of the subtree after deletion and balancing.
-        """
-        if not root:
+            # Standard BST Delete logic
+            if not root:
+                return root
+
+            if isbn < root.isbn:
+                root.left = self.delete(root.left, isbn)
+            elif isbn > root.isbn:
+                root.right = self.delete(root.right, isbn)
+            else:
+                # We found the node to delete!
+                if root.left is None: # Only one child or none
+                    return root.right
+                elif root.right is None:
+                    return root.left
+
+                # Two children: Get the smallest node from the right side to replace this one
+                temp = self.minValue(root.right)
+                root.isbn = temp.isbn
+                root.book = temp.book
+                root.right = self.delete(root.right, temp.isbn)
+
+            if root is None: return root
+
+            # Update height and check balance (similar logic to insert)
+            root.height = 1 + max(self.height(root.left), self.height(root.right))
+            balance = self.balance(root)
+
+            # Balancing logic after deletion (checking if child is left or right heavy)
+            if balance > 1 and self.balance(root.left) >= 0: return self.rotateRight(root)
+            if balance > 1 and self.balance(root.left) < 0:
+                root.left = self.rotateLeft(root.left)
+                return self.rotateRight(root)
+            if balance < -1 and self.balance(root.right) <= 0: return self.rotateLeft(root)
+            if balance < -1 and self.balance(root.right) > 0:
+                root.right = self.rotateRight(root.right)
+                return self.rotateLeft(root)
+
             return root
 
+    def search(self, root, isbn):
+        """Looks for an ISBN. Returns the node if found, else None."""
+        if not root or root.isbn == isbn:
+            return root
+        # If what we want is smaller than current, look left. Otherwise, look right.
         if isbn < root.isbn:
-            root.left = self.delete(root.left, isbn)
-        elif isbn > root.isbn:
-            root.right = self.delete(root.right, isbn)
-        else:
-            if root.left is None:
-                temp = root.right
-                root = None
-                return temp
-            elif root.right is None:
-                temp = root.left
-                root = None
-                return temp
-
-            temp = self.minValue(root.right)
-            root.isbn = temp.isbn
-            root.book = temp.book
-            root.right = self.delete(root.right, temp.isbn)
-
-        if root is None:
-            return root
-
-        root.height = 1 + max(self.height(root.left), self.height(root.right))
-        balance = self.balance(root)
-
-        # Left Left Case
-        if balance > 1 and self.balance(root.left) >= 0:
-            return self.rotateRight(root)
-        # Left Right Case
-        if balance > 1 and self.balance(root.left) < 0:
-            root.left = self.rotateLeft(root.left)
-            return self.rotateRight(root)
-        # Right Right Case
-        if balance < -1 and self.balance(root.right) <= 0:
-            return self.rotateLeft(root)
-        # Right Left Case
-        if balance < -1 and self.balance(root.right) > 0:
-            root.right = self.rotateRight(root.right)
-            return self.rotateLeft(root)
-
-        return root
-
+            return self.search(root.left, isbn)
+        return self.search(root.right, isbn)
+    
     def rebalance(self, root, isbn):
         balance = self.balance(root)
         if balance > 1 and isbn < root.left.isbn:
